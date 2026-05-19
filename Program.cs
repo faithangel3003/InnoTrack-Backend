@@ -180,7 +180,12 @@ var connectionString = builder.Configuration.GetConnectionString("DefaultConnect
     ?? throw new InvalidOperationException("DefaultConnection is not configured");
 
 builder.Services.AddDbContext<AppDbContext>(options =>
-    options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString)));
+{
+    options.UseMySql(
+        connectionString,
+        new MySqlServerVersion(new Version(8, 0, 36))
+    );
+});
 
 builder.Services
     .AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
@@ -356,7 +361,10 @@ app.UseAuthorization();
 app.MapControllers();
 app.MapHub<CollaborationHub>("/hubs/collaboration");
 
-await SuperAdminSchemaBootstrapper.InitializeAsync(app.Services, app.Logger);
+if (app.Environment.IsDevelopment())
+{
+    await SuperAdminSchemaBootstrapper.InitializeAsync(app.Services, app.Logger);
+}
 
 app.Run();
 
