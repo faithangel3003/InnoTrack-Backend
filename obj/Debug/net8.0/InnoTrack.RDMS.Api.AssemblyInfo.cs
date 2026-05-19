@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("InnoTrack.RDMS.Api")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+95f07a7dcc7d3d98d0d9ba45af6c5c9d9b72064e")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d669d7f89d75121d0c896c9267b7dcc7541629bd")]
 [assembly: System.Reflection.AssemblyProductAttribute("InnoTrack.RDMS.Api")]
 [assembly: System.Reflection.AssemblyTitleAttribute("InnoTrack.RDMS.Api")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
