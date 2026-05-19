@@ -358,6 +358,8 @@ app.UseAuthentication();
 app.UseMiddleware<RoleAuthorizationMiddleware>();
 app.UseAuthorization();
 
+app.MapGet("/", () => "InnoTrack API is running");
+
 app.MapControllers();
 app.MapHub<CollaborationHub>("/hubs/collaboration");
 
@@ -365,6 +367,8 @@ if (app.Environment.IsDevelopment())
 {
     await SuperAdminSchemaBootstrapper.InitializeAsync(app.Services, app.Logger);
 }
+
+app.MapGet("/", () => "InnoTrack API is running");
 
 app.Run();
 
