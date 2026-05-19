@@ -80,7 +80,8 @@ builder.Services.AddControllers(options =>
         options.SuppressModelStateInvalidFilter = true;
     });
 
-builder.Services.AddOpenApi();
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
 builder.Services.AddSignalR();
 builder.Services.AddMemoryCache();
 builder.Services.AddHttpClient("CloudinaryDocuments", client =>
@@ -335,7 +336,8 @@ app.Use(async (context, next) =>
     await next();
 });
 
-app.MapOpenApi();
+app.UseSwagger();
+app.UseSwaggerUI();
 
 app.UseSerilogRequestLogging();
 if (!app.Environment.IsDevelopment())
